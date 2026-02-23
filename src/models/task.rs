@@ -15,7 +15,6 @@ pub enum Priority {
 pub struct Task {
     pub id: Uuid,
     pub user_id: Uuid,
-    pub goal_id: Option<Uuid>,
     pub title: String,
     pub notes: Option<String>,
     pub priority: Priority,
@@ -27,7 +26,6 @@ pub struct Task {
 
 #[derive(Debug, Deserialize)]
 pub struct CreateTask {
-    pub goal_id: Option<Uuid>,
     pub title: String,
     pub notes: Option<String>,
     pub priority: Option<Priority>,
