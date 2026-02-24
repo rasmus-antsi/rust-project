@@ -100,12 +100,13 @@ pub async fn delete_goal(
     Path(id): Path<Uuid>,
     State(state): State<AppState>,
 ) -> impl IntoResponse {
-    let deleted =
-        sqlx::query_scalar::<_, Uuid>("DELETE FROM goals WHERE id = $1 AND user_id = $2 RETURNING id")
-            .bind(id)
-            .bind(auth.user_id)
-            .fetch_optional(&state.db_pool)
-            .await;
+    let deleted = sqlx::query_scalar::<_, Uuid>(
+        "DELETE FROM goals WHERE id = $1 AND user_id = $2 RETURNING id",
+    )
+    .bind(id)
+    .bind(auth.user_id)
+    .fetch_optional(&state.db_pool)
+    .await;
 
     match deleted {
         Ok(Some(_)) => StatusCode::NO_CONTENT.into_response(),

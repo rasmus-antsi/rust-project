@@ -89,6 +89,13 @@ Habits
 - `DELETE /habits/{id}`
 - `POST /habits/{id}/complete` `{ completed_on? }`
 
+Pomodoro
+
+- `GET /pomodoro`
+- `POST /pomodoro/start` `{ task_id?, session_type?, duration_minutes? }`
+- `POST /pomodoro/{id}/end` `{ notes? }`
+- `DELETE /pomodoro/{id}`
+
 Views
 
 - `GET /`
@@ -106,6 +113,7 @@ src/
 ├── goals/               # Goal CRUD handlers
 ├── tasks/               # Task CRUD handlers
 ├── habits/              # Habit CRUD handlers
+├── pomodoro/            # Pomodoro session tracking handlers
 └── views/               # Askama templates + routes
 ```
 

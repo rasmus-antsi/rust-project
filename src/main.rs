@@ -1,6 +1,6 @@
 use crate::{
     auth::router::auth_router, goals::router::goals_router, habits::router::habits_router,
-    tasks::router::tasks_router,
+    pomodoro::router::pomodoro_router, tasks::router::tasks_router,
 };
 use axum::Router;
 use dotenv::dotenv;
@@ -10,6 +10,7 @@ mod auth;
 mod goals;
 mod habits;
 mod models;
+mod pomodoro;
 mod state;
 mod tasks;
 mod views;
@@ -31,6 +32,7 @@ async fn main() {
         .nest("/tasks", tasks_router())
         .nest("/goals", goals_router())
         .nest("/habits", habits_router())
+        .nest("/pomodoro", pomodoro_router())
         .with_state(app_state);
 
     let addr: String = "127.0.0.1:3000".to_string();
