@@ -73,6 +73,14 @@ Tasks
 - `DELETE /tasks/{id}`
 - `POST /tasks/{id}/complete`
 
+Habits
+
+- `GET /habits`
+- `POST /habits` `{ name, frequency? }`
+- `PATCH /habits/{id}` `{ name?, frequency? }`
+- `DELETE /habits/{id}`
+- `POST /habits/{id}/complete` `{ completed_on? }`
+
 Views
 
 - `GET /`

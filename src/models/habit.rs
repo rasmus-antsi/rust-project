@@ -33,6 +33,12 @@ pub struct CreateHabit {
 }
 
 #[derive(Debug, Deserialize)]
+pub struct UpdateHabit {
+    pub name: Option<String>,
+    pub frequency: Option<Frequency>,
+}
+
+#[derive(Debug, Deserialize)]
 pub struct CompleteHabit {
     pub completed_on: Option<NaiveDate>,
 }

@@ -1,9 +1,12 @@
-use crate::{auth::router::auth_router, tasks::router::tasks_router};
+use crate::{
+    auth::router::auth_router, habits::router::habits_router, tasks::router::tasks_router,
+};
 use axum::Router;
 use dotenv::dotenv;
 use std::env;
 
 mod auth;
+mod habits;
 mod models;
 mod state;
 mod tasks;
@@ -24,6 +27,7 @@ async fn main() {
         .merge(views::router::views_router())
         .nest("/auth", auth_router())
         .nest("/tasks", tasks_router())
+        .nest("/habits", habits_router())
         .with_state(app_state);
 
     let addr: String = "127.0.0.1:3000".to_string();
