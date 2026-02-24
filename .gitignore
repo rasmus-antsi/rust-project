@@ -1,1 +1,21 @@
 /target
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Rust
+**/*.rs.bk
+
+# OS
+.DS_Store
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
