@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Flowstate | Build Better Days</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="https://unpkg.com/htmx.org@1.9.12"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							ink: "#0B1220",
+							mist: "#ECF2FF",
+							mint: "#B5F5D6",
+							sky: "#7CC9FF",
+							coral: "#FF8F8F",
+						},
+					},
+				},
+			};
+		</script>
+	</head>
+	<body class="min-h-screen bg-ink text-mist">
+		<div class="absolute inset-0 -z-10 overflow-hidden">
+			<div
+				class="absolute -left-24 top-0 h-80 w-80 rounded-full bg-sky/30 blur-3xl"
+			></div>
+			<div
+				class="absolute right-0 top-24 h-96 w-96 rounded-full bg-coral/20 blur-3xl"
+			></div>
+			<div
+				class="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-mint/20 blur-3xl"
+			></div>
+		</div>
+
+		<header
+			class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6"
+		>
+			<a class="text-lg font-semibold tracking-wide" href="/"
+				>Flowstate</a
+			>
+			<div class="flex items-center gap-3">
+				<a
+					href="/auth/login"
+					class="rounded-xl border border-white/20 px-4 py-2 text-sm hover:bg-white/10"
+					>Sign in</a
+				>
+				<a
+					href="/auth/register"
+					class="rounded-xl bg-mist px-4 py-2 text-sm font-semibold text-ink hover:bg-white"
+					>Get started</a
+				>
+			</div>
+		</header>
+
+		<main
+			class="mx-auto grid w-full max-w-6xl gap-10 px-6 pb-20 pt-8 md:grid-cols-2 md:items-center"
+		>
+			<section>
+				<p
+					class="mb-3 inline-flex rounded-full border border-white/20 px-3 py-1 text-xs uppercase tracking-widest"
+				>
+					Daily productivity OS
+				</p>
+				<h1 class="text-4xl font-black leading-tight md:text-6xl">
+					Plan less.
+					<span class="text-sky">Do more.</span>
+				</h1>
+				<p class="mt-4 max-w-xl text-base text-mist/80 md:text-lg">
+					Tasks, habits, goals, and focused sessions in one clear
+					workflow. Stay calm, track progress, and finish what
+					matters.
+				</p>
+				<div class="mt-8 flex flex-wrap gap-3">
+					<a
+						href="/auth/register"
+						class="rounded-2xl bg-sky px-6 py-3 font-semibold text-ink hover:bg-sky/90"
+						>Create account</a
+					>
+					<a
+						href="/auth/login"
+						class="rounded-2xl border border-white/20 px-6 py-3 font-semibold hover:bg-white/10"
+						>I already have an account</a
+					>
+				</div>
+			</section>
+
+			<section
+				class="rounded-3xl border border-white/15 bg-white/5 p-6 backdrop-blur"
+			>
+				<h2 class="mb-4 text-xl font-semibold">What you get</h2>
+				<ul class="space-y-3 text-mist/90">
+					<li class="rounded-xl bg-white/5 p-4">
+						Daily task planning with clear priorities
+					</li>
+					<li class="rounded-xl bg-white/5 p-4">
+						Habit streaks and check-ins
+					</li>
+					<li class="rounded-xl bg-white/5 p-4">
+						Goal tracking by measurable milestones
+					</li>
+					<li class="rounded-xl bg-white/5 p-4">
+						Pomodoro sessions with momentum history
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

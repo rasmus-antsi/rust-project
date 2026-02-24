@@ -7,6 +7,7 @@ mod auth;
 mod models;
 mod state;
 mod tasks;
+mod views;
 
 #[tokio::main]
 async fn main() {
@@ -20,6 +21,7 @@ async fn main() {
 
     let app_state = state::AppState::new(db_pool, jwt_secret);
     let app = Router::new()
+        .merge(views::router::views_router())
         .nest("/auth", auth_router())
         .nest("/tasks", tasks_router())
         .with_state(app_state);

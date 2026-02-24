@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sign in | Flowstate</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="https://unpkg.com/htmx.org@1.9.12"></script>
+		<script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
+	</head>
+	<body class="min-h-screen bg-slate-950 text-slate-100">
+		<div class="absolute inset-0 -z-10 overflow-hidden">
+			<div
+				class="absolute -left-20 top-0 h-72 w-72 rounded-full bg-cyan-500/25 blur-3xl"
+			></div>
+			<div
+				class="absolute right-0 top-20 h-80 w-80 rounded-full bg-emerald-500/20 blur-3xl"
+			></div>
+		</div>
+
+		<main
+			class="mx-auto flex min-h-screen w-full max-w-md items-center px-6 py-12"
+		>
+			<section
+				class="w-full rounded-3xl border border-white/15 bg-white/5 p-7 backdrop-blur"
+			>
+				<a
+					href="/"
+					class="mb-5 inline-block text-sm text-slate-300 hover:text-white"
+					>← Back</a
+				>
+				<h1 class="text-3xl font-bold">Welcome back</h1>
+				<p class="mt-2 text-sm text-slate-300">
+					Sign in to continue your daily flow.
+				</p>
+
+				<form
+					class="mt-6 space-y-4"
+					hx-ext="json-enc"
+					hx-post="/auth/login"
+					hx-target="#auth-result"
+					hx-swap="innerHTML"
+				>
+					<label class="block">
+						<span class="mb-1 block text-sm text-slate-200"
+							>Email</span
+						>
+						<input
+							class="w-full rounded-xl border border-white/15 bg-slate-900 px-3 py-2 outline-none ring-cyan-400 focus:ring"
+							type="email"
+							name="email"
+							placeholder="you@example.com"
+							required
+						/>
+					</label>
+					<label class="block">
+						<span class="mb-1 block text-sm text-slate-200"
+							>Password</span
+						>
+						<input
+							class="w-full rounded-xl border border-white/15 bg-slate-900 px-3 py-2 outline-none ring-cyan-400 focus:ring"
+							type="password"
+							name="password"
+							placeholder="••••••••"
+							required
+						/>
+					</label>
+					<button
+						class="w-full rounded-xl bg-cyan-400 px-4 py-2.5 font-semibold text-slate-950 hover:bg-cyan-300"
+						type="submit"
+					>
+						Sign in
+					</button>
+				</form>
+
+				<div id="auth-result" class="mt-4 text-sm"></div>
+
+				<p class="mt-6 text-sm text-slate-300">
+					New here?
+					<a
+						href="/auth/register"
+						class="font-semibold text-cyan-300 hover:text-cyan-200"
+						>Create an account</a
+					>
+				</p>
+			</section>
+		</main>
+	</body>
+</html>
