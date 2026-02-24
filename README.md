@@ -73,6 +73,14 @@ Tasks
 - `DELETE /tasks/{id}`
 - `POST /tasks/{id}/complete`
 
+Goals
+
+- `GET /goals`
+- `POST /goals` `{ title, description?, deadline? }`
+- `PATCH /goals/{id}` `{ title?, description?, deadline?, status? }`
+- `DELETE /goals/{id}`
+- `POST /goals/{id}/complete`
+
 Habits
 
 - `GET /habits`
@@ -95,7 +103,9 @@ src/
 ├── state.rs             # AppState (db pool + jwt secret)
 ├── models/              # DB row structs + request/response types
 ├── auth/                # Auth handlers, JWT, middleware
+├── goals/               # Goal CRUD handlers
 ├── tasks/               # Task CRUD handlers
+├── habits/              # Habit CRUD handlers
 └── views/               # Askama templates + routes
 ```
 

@@ -1,11 +1,13 @@
 use crate::{
-    auth::router::auth_router, habits::router::habits_router, tasks::router::tasks_router,
+    auth::router::auth_router, goals::router::goals_router, habits::router::habits_router,
+    tasks::router::tasks_router,
 };
 use axum::Router;
 use dotenv::dotenv;
 use std::env;
 
 mod auth;
+mod goals;
 mod habits;
 mod models;
 mod state;
@@ -27,6 +29,7 @@ async fn main() {
         .merge(views::router::views_router())
         .nest("/auth", auth_router())
         .nest("/tasks", tasks_router())
+        .nest("/goals", goals_router())
         .nest("/habits", habits_router())
         .with_state(app_state);
 
